@@ -8,7 +8,7 @@ import streamlit as st
 load_dotenv()
 
 # Use local env or Streamlit Cloud secret
-openai.api_key = os.getenv("openai_api_key") or st.secrets.get("openai_api_key")
+openai.api_key = os.getenv("api_key") or st.secrets.get("api_key")
 
 def get_answer(messages):
     system_message = [{"role": "system", "content": "You are a helpful AI chatbot that answers questions asked by the user."}]
