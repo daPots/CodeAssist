@@ -32,7 +32,7 @@ for message in st.session_state.messages:
 if audio_bytes:
     # Write the audio bytes to a file
     with st.spinner("Transcribing..."):
-        webm_file_path = "temp_audio.mp3"
+        webm_file_path = "temp_audio.webm"
         with open(webm_file_path, "wb") as f:
             f.write(audio_bytes)
 
