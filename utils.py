@@ -11,7 +11,7 @@ load_dotenv()
 openai.api_key = os.getenv("api_key") or st.secrets.get("api_key")
 
 def get_answer(messages):
-    system_message = [{"role": "system", "content": "You are a helpful AI chatbot that answers questions asked by the user."}]
+    system_message = [{"role": "system", "content": "You are a demo smart system AI that helps EMT workers during a cardiac arrest call. Provide 1 sentence commands like "Administer CPR" or "Administer Epinephrine". The user will confirm with a message, and you will give the next task."}]
     messages = system_message + messages
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo-1106",
