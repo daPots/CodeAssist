@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 import base64
 import streamlit as st
 
-# Load environment variables
+# Load environment variables from .env locally
 load_dotenv()
 
-# Use .env locally, fallback to Streamlit Cloud secrets
+# Use local env or Streamlit Cloud secret
 openai.api_key = os.getenv("openai_api_key") or st.secrets.get("openai_api_key")
 
 def get_answer(messages):
@@ -20,13 +20,17 @@ def get_answer(messages):
     return response.choices[0].message.content
 
 def speech_to_text(audio_data):
-    with open(audio_data, "rb") as audio_file:
-        transcript = openai.audio.transcriptions.create(
-            model="whisper-1",
-            response_format="text",
-            file=audio_file
-        )
-    return transcript
+    try:
+        with open(audio_data, "rb") as audio_file:
+            transcript = openai.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file,
+                response_format="text"
+            )
+        return transcript
+    except Exception as e:
+        st.error(f"Transcription failed: {e}")
+        return None
 
 def text_to_speech(input_text):
     response = openai.audio.speech.create(
