@@ -79,7 +79,7 @@ with col4:
         <div style="display: flex; align-items: center; height: 100%;">
             <div style="margin-left: auto; margin-right: auto;">
                 """ , unsafe_allow_html=True)
-    audio_bytes = audio_recorder(text="", icon_size="5x", recording_color="#FF0000", neutral_color="#FFFFFF")
+    audio_bytes = audio_recorder(text="", icon_size="5x", recording_color="#FF0000", neutral_color="#79aaf7")
     st.markdown("</div></div>", unsafe_allow_html=True)  # Close the divs after the recorder
 
 
