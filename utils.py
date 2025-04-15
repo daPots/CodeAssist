@@ -37,7 +37,7 @@ def get_answer(messages):
         }
     ]
     messages = system_message + messages
-    response = openai.chat.completions.create(model="gpt-3.5-turbo-1106", messages=messages)
+    response = openai.chat.completions.create(model="gpt-3.5-turbo-1106", messages=messages, max_tokens=20)
     return response.choices[0].message.content
 
 def speech_to_text(audio_data):
