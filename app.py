@@ -82,6 +82,10 @@ with col4:
     audio_bytes = audio_recorder(text="", icon_size="5x", recording_color="#FF0000", neutral_color="#FFFFFF")
     st.markdown("</div></div>", unsafe_allow_html=True)  # Close the divs after the recorder
 
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]): st.write(message["content"])
+
 # Handle audio input and transcription
 if audio_bytes:
     with st.spinner("Acknowledging Task Completion..."):
