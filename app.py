@@ -20,8 +20,7 @@ def initialize_session_state():
 initialize_session_state()
 
 # Add custom CSS to create a hover effect
-st.markdown("""
-    <style>
+st.markdown(""" <style>
         .hover-message-container {
             position: relative;
             display: inline-block;
@@ -49,8 +48,7 @@ st.markdown("""
             visibility: visible;
             opacity: 1;
         }
-    </style>
-""", unsafe_allow_html=True)
+    </style> """, unsafe_allow_html=True)
 
 # Header images
 col1, col2, col5 = st.columns([4, 1, 2])
@@ -59,7 +57,7 @@ with col2: st.image("logo.png")
 with col5:
     st.markdown("""
         <div class="hover-message-container">
-            <button style="font-size: 20px; border: none; background-color: transparent; color: white;">ⓘ How To Use</button>
+            <button style="font-size: 20px; border: none; background-color: transparent; color: #79aaf7;">ⓘ How To Use</button>
             <div class="hover-message">
                 <p> CodeAssist is an AI-powered smart system intended to guide EMT workers through a patient cardiac arrest event using ACLS protocols.
                     To begin, simply click on the microphone and say "Begin the protocol". 
